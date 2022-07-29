@@ -3,7 +3,7 @@ import 'models/notification_message.dart';
 
 abstract class MessageHandlerActionInterface {
   void sendMessage({required NotificationMessage message});
-  void sendMessageToMiddlewares({required NotificationMessageLevel level, String? message, dynamic throwable});
+  void sendMessageToMiddlewares({required NotificationMessageLevel level, String? message, Object? throwable});
 }
 
 class MessageHandlerAction implements MessageHandlerActionInterface {
