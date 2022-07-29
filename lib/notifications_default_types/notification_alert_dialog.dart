@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:message_handler/models/notification_message.dart';
-import 'package:message_handler/notification_base_design.dart';
+import 'notification_base.dart';
 
-class NotificationAlertDialog implements NotificationBaseDesign {
+class NotificationAlertDialog extends NotificationBase {
   const NotificationAlertDialog();
 
   @override

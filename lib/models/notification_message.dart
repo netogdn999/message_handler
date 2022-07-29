@@ -2,8 +2,9 @@ import 'dart:async';
 
 enum NotificationMessageType {
   alertDialog,
-  toast,
-  bottomSheet
+  snackBar,
+  bottomSheet,
+  persistentSnackBar,
 }
 
 enum NotificationMessageLevel {
