@@ -1,6 +1,6 @@
 name: message_handler
 description: A new Flutter package project.
-version: 0.0.1
+version: 0.0.1-dev
 homepage: https://github.com/netogdn999/message_handler
 
 environment:
