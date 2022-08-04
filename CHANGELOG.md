@@ -1,4 +1,4 @@
-## 1.0.1
+## 1.0.2
 * The documentation was generated
 * The descriptions of the methods was updated
 
