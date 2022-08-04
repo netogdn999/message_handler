@@ -6,7 +6,10 @@ class NotificationPersistentSnackBar extends NotificationBase {
   const NotificationPersistentSnackBar();
 
   @override
-  Widget buildNotification(BuildContext context, NotificationMessage notification) {
+  Widget buildNotification(
+    BuildContext context,
+    NotificationMessage notification,
+  ) {
     return SnackBar(
       padding: const EdgeInsets.all(0.0),
       duration: const Duration(days: 365),
@@ -14,15 +17,18 @@ class NotificationPersistentSnackBar extends NotificationBase {
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         decoration: BoxDecoration(
           border: Border(
-            left: BorderSide(color: borderColor[notification.level]!, width: 8.0),
-          )
+            left: BorderSide(
+              color: borderColor[notification.level]!,
+              width: 8.0,
+            ),
+          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if(notification.title != null) ...[
-              Text(notification.title!)
+            if (notification.title != null) ...[
+              Text(notification.title!),
             ],
             Text(notification.content)
           ],
@@ -30,5 +36,4 @@ class NotificationPersistentSnackBar extends NotificationBase {
       ),
     );
   }
-
 }

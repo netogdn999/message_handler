@@ -9,14 +9,16 @@ void main() {
 class TestMiddleware implements MessageHandlerMiddleware {
   const TestMiddleware();
   @override
-  void didShowMessage({required NotificationMessageLevel level, String? message, Object? throwable}) {
+  void didShowMessage(
+      {required NotificationMessageLevel level,
+      String? message,
+      Object? throwable}) {
     debugPrint({
       level: level,
       message: message,
       throwable: throwable,
     }.toString());
   }
-
 }
 
 class MyApp extends StatelessWidget {
@@ -53,44 +55,34 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       messageHandler.sendMessage(
         message: NotificationMessage(
-          content: "testando alert dialog",
-          onDismiss: () {
-          }
-        ),
+            content: "testando alert dialog", onDismiss: () {}),
       );
       messageHandler.sendMessage(
         message: NotificationMessage(
-          title: "title",
-          content: "testando snack bar",
-          type: NotificationMessageType.snackBar,
-          onDismiss: () {
-          }
-        ),
+            title: "title",
+            content: "testando snack bar",
+            type: NotificationMessageType.snackBar,
+            onDismiss: () {}),
       );
       messageHandler.sendMessage(
         message: NotificationMessage(
-          title: "title",
-          content: "testando modal bottom sheet",
-          type: NotificationMessageType.bottomSheet,
-          level: NotificationMessageLevel.info,
-          onDismiss: () {
-          }
-        ),
+            title: "title",
+            content: "testando modal bottom sheet",
+            type: NotificationMessageType.bottomSheet,
+            level: NotificationMessageLevel.info,
+            onDismiss: () {}),
       );
       messageHandler.sendMessage(
         message: NotificationMessage(
-          title: "title",
-          content: "testando persistent snack bar",
-          type: NotificationMessageType.persistentSnackBar,
-          level: NotificationMessageLevel.warning,
-          onDismiss: () {
-          }
-        ),
+            title: "title",
+            content: "testando persistent snack bar",
+            type: NotificationMessageType.persistentSnackBar,
+            level: NotificationMessageLevel.warning,
+            onDismiss: () {}),
       );
       messageHandler.sendMessageToMiddlewares(
-        level: NotificationMessageLevel.error,
-        message: "testando middleware"
-      );
+          level: NotificationMessageLevel.error,
+          message: "testando middleware");
       _counter++;
     });
   }

@@ -9,6 +9,9 @@ abstract class NotificationBase {
     NotificationMessageLevel.error: Color(0xFFDA1414)
   };
   const NotificationBase();
-  
-  Widget buildNotification(BuildContext context, NotificationMessage notification);
+
+  Widget buildNotification(
+    BuildContext context,
+    NotificationMessage notification,
+  );
 }

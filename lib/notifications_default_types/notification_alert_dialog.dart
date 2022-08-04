@@ -6,11 +6,13 @@ class NotificationAlertDialog extends NotificationBase {
   const NotificationAlertDialog();
 
   @override
-  Widget buildNotification(BuildContext context, NotificationMessage notification) {
+  Widget buildNotification(
+    BuildContext context,
+    NotificationMessage notification,
+  ) {
     return AlertDialog(
       title: notification.title != null ? Text(notification.title!) : null,
       content: Text(notification.content),
     );
   }
-
 }

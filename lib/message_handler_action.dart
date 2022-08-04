@@ -2,11 +2,11 @@ import 'controller/message_handler_controller.dart';
 import 'models/notification_message.dart';
 
 abstract class MessageHandlerActionInterface {
-  /// 
+  ///
   /// Displays a [NotificationMessage] to the user, if a [NotificationMessage] is already displayed, it will be sent to the display queue.
-  /// 
+  ///
   /// If you have any middleware registered, it will be called previously.
-  /// 
+  ///
   /// Example:
   /// ```dart
   /// messageHandler.sendMessage(
@@ -20,11 +20,11 @@ abstract class MessageHandlerActionInterface {
   ///   ),
   /// );
   /// ```
-  /// 
+  ///
   void sendMessage({required NotificationMessage message});
 
   /// Call registered middlewares.
-  /// 
+  ///
   /// Example:
   /// ```dart
   /// messageHandler.sendMessageToMiddlewares(
@@ -32,12 +32,16 @@ abstract class MessageHandlerActionInterface {
   ///   message: "testando middleware",
   /// );
   /// ```
-  void sendMessageToMiddlewares({required NotificationMessageLevel level, String? message, Object? throwable});
+  void sendMessageToMiddlewares(
+      {required NotificationMessageLevel level,
+      String? message,
+      Object? throwable});
 }
 
 class MessageHandlerAction implements MessageHandlerActionInterface {
   static MessageHandlerActionInterface? _instance;
-  late final MessageHandlerController _controller = MessageHandlerController.instance;
+  late final MessageHandlerController _controller =
+      MessageHandlerController.instance;
 
   static get instance {
     _instance ??= MessageHandlerAction();
@@ -51,12 +55,14 @@ class MessageHandlerAction implements MessageHandlerActionInterface {
   }
 
   @override
-  void sendMessageToMiddlewares({required NotificationMessageLevel level, String? message, Object? throwable}) {
+  void sendMessageToMiddlewares(
+      {required NotificationMessageLevel level,
+      String? message,
+      Object? throwable}) {
     _controller.callMiddlewares(
       level: level,
       message: message,
       throwable: throwable,
     );
   }
-
 }

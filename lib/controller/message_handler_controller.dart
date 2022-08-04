@@ -5,10 +5,13 @@ import '../models/notification_message.dart';
 
 class MessageHandlerController extends ChangeNotifier {
   static MessageHandlerController? _instance;
+
   /// [NotificationMessage] queue.
   final List<NotificationMessage> notifications = [];
+
   /// [MessageHandlerMiddleware] queue.
   final List<MessageHandlerMiddleware> middlewares = [];
+
   /// Check if there is a NotificationMessage being displayed.
   bool hasMessageShowing = false;
 
@@ -41,7 +44,7 @@ class MessageHandlerController extends ChangeNotifier {
   }
 
   /// If the [NotificationMessage] queue is not empty, call the next [NotificationMessage].
-  /// 
+  ///
   /// This method calls all [MessageHandlerMiddleware] registred in the queue.
   void consumeMessage() {
     if (!hasMessageShowing) {

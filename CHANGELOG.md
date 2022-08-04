@@ -1,3 +1,7 @@
+## 1.0.0
+* The documentation was generated
+* The descriptions of the methods was updated
+
 ## 0.0.2-dev
 
 * Updated the description of the package

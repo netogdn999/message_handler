@@ -45,6 +45,7 @@ class MessageManager extends StatelessWidget {
     return child;
   }
 
+  /// Displays the first [NotificationMessage] in the queue.
   void _listenerMessageManager(
     BuildContext context,
     MessageHandlerController controller,
@@ -77,6 +78,9 @@ class MessageManager extends StatelessWidget {
     }
   }
 
+  /// Displays the next [NotificationMessage] in the queue.
+  ///
+  /// Remove the previously [NotificationMessage].
   void _consumeNextMessage(MessageHandlerController controller) {
     controller.removeMessage();
     if (controller.haveNotification) {
@@ -84,6 +88,9 @@ class MessageManager extends StatelessWidget {
     }
   }
 
+  /// Display the [NotificationMessage] of the type [NotificationMessageType.alertDialog].
+  ///
+  /// If the parameter [alertDialog] is null, the message will be displayed with the default visual.
   Future<void> _showAlertDialog(
     BuildContext context,
     NotificationMessage notification,
@@ -100,6 +107,9 @@ class MessageManager extends StatelessWidget {
     });
   }
 
+  /// Display the [NotificationMessage] of the type [NotificationMessageType.snackBar].
+  ///
+  /// If the parameter [snackBar] is null, the message will be displayed with the default visual.
   Future<void> _showSnackBar(
     BuildContext context,
     NotificationMessage notification,
@@ -117,6 +127,9 @@ class MessageManager extends StatelessWidget {
     });
   }
 
+  /// Display the [NotificationMessage] of the type [NotificationMessageType.bottomSheet].
+  ///
+  /// If the parameter [bottomSheet] is null, the message will be displayed with the default visual.
   Future<void> _showBottomSheet(
     BuildContext context,
     NotificationMessage notification,
@@ -132,6 +145,9 @@ class MessageManager extends StatelessWidget {
     });
   }
 
+  /// Display the [NotificationMessage] of the type [NotificationMessageType.persistentSnackBar].
+  ///
+  /// If the parameter [persistentSnackBar] is null, the message will be displayed with the default visual.
   Future<void> _showPersistentSnackBar(
     BuildContext context,
     NotificationMessage notification,
