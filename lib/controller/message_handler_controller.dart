@@ -20,7 +20,11 @@ class MessageHandlerController extends ChangeNotifier {
     notifications.add(message);
   }
 
-  void callMiddlewares({required NotificationMessageLevel level, String? message, Object? throwable}) {
+  void callMiddlewares({
+    required NotificationMessageLevel level,
+    String? message,
+    Object? throwable,
+  }) {
     for (var middleware in middlewares) {
       middleware.didShowMessage(
         level: level,
@@ -31,21 +35,20 @@ class MessageHandlerController extends ChangeNotifier {
   }
 
   void consumeMessage() {
-    if(!hasMessageShowing) {
+    if (!hasMessageShowing) {
       final currentNotification = notifications.first;
       callMiddlewares(
         level: currentNotification.level,
-        message: currentNotification.content
+        message: currentNotification.content,
       );
       notifyListeners();
     }
   }
 
   void removeMessage() {
-    if(notifications.isNotEmpty) {
+    if (notifications.isNotEmpty) {
       notifications.removeAt(0);
       hasMessageShowing = false;
     }
   }
-
 }
