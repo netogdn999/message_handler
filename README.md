@@ -1,6 +1,3 @@
-# Package still in development
-
-
 ## Getting started
 the `MessageManager` class should be added at the top of the widget tree, this class will allow both editing the desgin of standard messages, sending messages and adding middlwares as in the example below:
 
