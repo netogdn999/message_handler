@@ -1,3 +1,9 @@
+## 0.0.2-dev
+
+* Updated the description of the package
+* Created the documentation
+* Created a example code
+
 ## 0.0.1-dev
 
 * Added new types of notification messages:
