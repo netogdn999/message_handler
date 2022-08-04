@@ -19,10 +19,20 @@ class MessageManager extends StatelessWidget {
   final Widget child;
   final MessageHandlerController _controller =
       MessageHandlerController.instance;
+
+  /// The displayed visual of the [NotificationMessage] when the type are [NotificationMessageType.alertDialog].
   final NotificationBase? alertDialog;
+
+  /// The displayed visual of the [NotificationMessage] when the type are [NotificationMessageType.snackBar].
   final NotificationSnackBar? snackBar;
+
+  /// The displayed visual of the [NotificationMessage] when the type are [NotificationMessageType.bottomSheet].
   final NotificationBottomSheet? bottomSheet;
+
+  /// The displayed visual of the [NotificationMessage] when the type are [NotificationMessageType.persistentSnackBar].
   final NotificationPersistentSnackBar? persistentSnackBar;
+
+  /// List of [MessageHandlerMiddleware] that will be registred in the middlewares queue
   final List<MessageHandlerMiddleware>? middlewares;
   MessageManager({
     Key? key,
@@ -34,6 +44,7 @@ class MessageManager extends StatelessWidget {
     this.middlewares,
   }) : super(key: key);
 
+  /// Registers the [middlewares] in the queue.
   @override
   Widget build(BuildContext context) {
     _controller.addListener(() {

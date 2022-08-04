@@ -18,6 +18,8 @@ class NotificationMessage {
   final String content;
   final NotificationMessageType type;
   final NotificationMessageLevel level;
+
+  /// Callback called after the [NotificationMessage] dismissed.
   final FutureOr<void> Function()? onDismiss;
 
   NotificationMessage({
