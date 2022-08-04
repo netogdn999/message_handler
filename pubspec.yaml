@@ -1,6 +1,6 @@
 name: message_handler
 description: This package aims to facilitate the use of alert messages for customers, as well as the execution of middlewares if necessary.
-version: 0.0.2-dev
+version: 1.0.0
 repository: https://github.com/netogdn999/message_handler
 
 environment:
