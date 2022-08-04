@@ -8,6 +8,7 @@ enum NotificationMessageType {
 }
 
 enum NotificationMessageLevel {
+  success,
   info,
   warning,
   error,

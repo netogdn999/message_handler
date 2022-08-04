@@ -8,6 +8,7 @@ import '../models/notification_message.dart';
 abstract class NotificationBase {
   /// The default colors values.
   final Map<NotificationMessageLevel, Color> borderColor = const {
+    NotificationMessageLevel.success: Color(0xFFA5D6A7),
     NotificationMessageLevel.info: Colors.blue,
     NotificationMessageLevel.warning: Color(0xFFFFEF4A),
     NotificationMessageLevel.error: Color(0xFFDA1414)

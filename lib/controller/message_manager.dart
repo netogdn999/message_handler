@@ -66,23 +66,31 @@ class MessageManager extends StatelessWidget {
       final currentNotification = controller.notifications.first;
       switch (currentNotification.type) {
         case NotificationMessageType.alertDialog:
-          _showAlertDialog(context, currentNotification, controller).then((_) {
-            _consumeNextMessage(controller);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showAlertDialog(context, currentNotification).then((_) {
+              _consumeNextMessage(controller);
+            });
           });
           break;
         case NotificationMessageType.snackBar:
-          _showSnackBar(context, currentNotification).then((_) {
-            _consumeNextMessage(controller);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showSnackBar(context, currentNotification).then((_) {
+              _consumeNextMessage(controller);
+            });
           });
           break;
         case NotificationMessageType.bottomSheet:
-          _showBottomSheet(context, currentNotification).then((_) {
-            _consumeNextMessage(controller);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showBottomSheet(context, currentNotification).then((_) {
+              _consumeNextMessage(controller);
+            });
           });
           break;
         case NotificationMessageType.persistentSnackBar:
-          _showPersistentSnackBar(context, currentNotification).then((_) {
-            _consumeNextMessage(controller);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showPersistentSnackBar(context, currentNotification).then((_) {
+              _consumeNextMessage(controller);
+            });
           });
           break;
       }
@@ -105,7 +113,6 @@ class MessageManager extends StatelessWidget {
   Future<void> _showAlertDialog(
     BuildContext context,
     NotificationMessage notification,
-    MessageHandlerController controller,
   ) {
     final alert = alertDialog ?? const NotificationAlertDialog();
     return showDialog<void>(
